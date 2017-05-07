@@ -117,7 +117,7 @@
   <!-- Bootstrap Core JavaScript -->
   <script src="bootstrap.js"></script>
   <script>
-    $.get("https://newsapi.org/v1/articles?apiKey=437cda69067e4ed6909d16589b0ab714&source=breitbart", function(data) {
+    $.get("https://newsapi.org/v1/articles?apiKey=437cda69067e4ed6909d16589b0ab714&source=bbc-news", function(data) {
       console.log(JSON.stringify(data))
       for (i = 0; i < 2; i++) {
         $("#stories").append(
