@@ -1,13 +1,15 @@
-var express = require('express')
-var app = express()
+const express = require('express');
+const app = express();
+const path = require('path');
 
 app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/echoless/public'))
+app.use(express.static(path.resolve(__dirname, 'echoless', 'build')));
 
-app.get('/', function(request, response) {
-  response.send('ECHOLESS \n\n Made at AngelHack SF 2017')
-})
+// Always return the main index.html, so react-router render the route in the client
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'echoless', 'build', 'index.html'));
+});
 
 app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
+  console.log("Node app is running at localhost:" + app.get('port'));
 })
