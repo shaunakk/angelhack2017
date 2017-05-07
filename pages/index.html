@@ -32,17 +32,7 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
+
         <ul class="nav navbar-nav navbar-right">
           <li>
             <a style="color:white" href="#">Consider the other side.</a>
@@ -66,97 +56,9 @@
       </div>
     </div>
     <!-- /.row -->
-
-    <!-- Project One -->
-    <div class="row">
-      <div class="col-md-7">
-        <a href="#">
-          <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-        </a>
-      </div>
-      <div class="col-md-5">
-        <h3>Project One</h3>
-        <h4>Subheading</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-        <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Project Two -->
-    <div class="row">
-      <div class="col-md-7">
-        <a href="#">
-          <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-        </a>
-      </div>
-      <div class="col-md-5">
-        <h3>Project Two</h3>
-        <h4>Subheading</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-        <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Project Three -->
-    <div class="row">
-      <div class="col-md-7">
-        <a href="#">
-          <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-        </a>
-      </div>
-      <div class="col-md-5">
-        <h3>Project Three</h3>
-        <h4>Subheading</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-        <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Project Four -->
-    <div class="row">
-
-      <div class="col-md-7">
-        <a href="#">
-          <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-        </a>
-      </div>
-      <div class="col-md-5">
-        <h3>Project Four</h3>
-        <h4>Subheading</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-        <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Project Five -->
-    <div class="row">
-      <div class="col-md-7">
-        <a href="#">
-          <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-        </a>
-      </div>
-      <div class="col-md-5">
-        <h3>Project Five</h3>
-        <h4>Subheading</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
-        <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
+    <div id="stories">
+      <!-- Project One -->
+    </div <hr>
 
     <!-- Pagination -->
     <div class="row text-center">
@@ -194,7 +96,7 @@
     <footer>
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright &copy; Your Website 2014</p>
+          <p>Made at AngelHack SF 2017</p>
         </div>
       </div>
       <!-- /.row -->
@@ -208,6 +110,18 @@
 
   <!-- Bootstrap Core JavaScript -->
   <script src="bootstrap.js"></script>
+  <script>
+    $.get("https://newsapi.org/v1/articles?apiKey=437cda69067e4ed6909d16589b0ab714&source=the-huffington-post", function(data) {
+      console.log(JSON.stringify(data))
+      for (i = 0; i < data.articles.length; i++) {
+        $("#stories").append(
+          "<div class='row'> <div class='col-md-7'> <a href='#'> <img class='img-responsive' src=" + data.articles[i].urlToImage +
+          " alt=''> </a> </div> <div class='col-md-5'> <h3>" + data.articles[i].title +
+          "</h3> <h4>" + data.articles[i].author + "</h4> <p>" + data.articles[i].description + "</p> <a class='btn btn-primary' href='#'>View Project <span class='glyphicon glyphicon-chevron-right'></span></a> </div> </div> </div> <hr>"
+        )
+      }
+    });
+  </script>
 
   </body>
 
