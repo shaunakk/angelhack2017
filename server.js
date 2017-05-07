@@ -7,9 +7,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(path.join(__dirname, 'echoless', 'build')));
 
 app.get('*', (req, res) => {
-      res.render(path.resolve(__dirname, 'echoless', 'build', 'index.html')); ===
-      ===
-      =
+      res.render(path.resolve(__dirname, 'echoless', 'build', 'index.html'));
       app.get('/', (req, res) => {
         res.sendFile(__dirname + '/echoless/build/index.html');
       });
