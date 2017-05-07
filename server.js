@@ -7,7 +7,7 @@ app.use(express.static(path.join('./', 'echoless', 'build')));
 
 // Always return the main index.html, so react-router render the route in the client
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('./', 'echoless', 'build', 'index.html'));
+  res.sendFile('./echoless/build/index.html');
 });
 
 app.listen(app.get('port'), function() {
