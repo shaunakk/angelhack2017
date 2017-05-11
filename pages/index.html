@@ -147,7 +147,7 @@
           $(".row").remove()
 
           $(".container").show()
-          $.get("https://newsapi.org/v1/articles?apiKey=437cda69067e4ed6909d16589b0ab714&source=breitbart-news", function(data) {
+          $.get("https://newsapi.org/v1/articles?apiKey=437cda69067e4ed6909d16589b0ab714&source=the-huffington-post", function(data) {
       console.log(JSON.stringify(data))
       for (i = 0; i < 10; i++) {
         $("#stories").append(
@@ -176,7 +176,7 @@
 
           $(".container").show()
          
-           $.get("https://newsapi.org/v1/articles?apiKey=437cda69067e4ed6909d16589b0ab714&source=the-huffington-post",function(data) {
+           $.get("https://newsapi.org/v1/articles?apiKey=437cda69067e4ed6909d16589b0ab714&source=breitbart-news",function(data) {
       console.log(JSON.stringify(data))
       for (i = 0; i < 10; i++) {
         $("#stories").append(
